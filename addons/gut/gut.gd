@@ -546,7 +546,7 @@ func _test_the_scripts():
 				_ctrls.test_progress.set_value(i + 1)
 
 		# call both post-all-tests methods until postrun_teardown is removed.
-		if(_does_class_name_match(_inner_class_name, the_script.class_name)):
+		if(_does_class_name_match(_inner_class_name, the_script.inner_class_name)):
 			test_script.postrun_teardown()
 			test_script.after_all()
 
