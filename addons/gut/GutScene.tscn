@@ -63,6 +63,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="TitleBar" type="Panel" parent="Main" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -443,6 +444,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Continue" type="Panel" parent="Main" index="6"]
 
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -533,6 +535,55 @@ allow_reselect = true
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
 _sections_unfolded = [ "Anchor", "Columns", "Grow Direction", "Icon", "Margin", "Mouse", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants" ]
+
+[node name="Summary" type="Node2D" parent="." index="1"]
+
+[node name="Passing" type="Label" parent="Summary" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Failing" type="Label" parent="Summary" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 10.0
+margin_right = 80.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="mouse_entered" from="Main/TitleBar" to="." method="_on_TitleBar_mouse_entered"]
 

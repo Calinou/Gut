@@ -12,12 +12,18 @@ onready var _progress = {
 	script = $Main/ScriptProgress,
 	test = $Main/TestProgress
 }
+onready var _summary = {
+	failing = $Summary/Failing,
+	passing = $Summary/Passing
+}
 
 var _mouse = {
 	down = false,
 	in_title = false,
 	down_pos = null
 }
+
+const DEFAULT_TITLE = 'Gut: The Godot Unit Testing tool.'
 
 signal run_script
 signal run_single_script
@@ -30,6 +36,8 @@ func _ready():
 	_hide_scripts()
 	_update_controls()
 	_nav.current_script.set_text("No scripts available")
+	set_title()
+	clear_summary()
 
 # ####################
 # GUI Events
@@ -201,6 +209,26 @@ func set_progress_test_value(value):
 func clear_progress():
 	_progress.test.set_value(0)
 	_progress.script.set_value(0)
-	
+
 func pause():
 	$Main/Continue/Continue.disabled = false
+
+func set_title(title=null):
+	if(title == null):
+		$Main/TitleBar/Title.set_text(DEFAULT_TITLE)
+	else:
+		$Main/TitleBar/Title.set_text(title)
+
+func add_passing(amount=1):
+	_summary.passing.set_text(str(_summary.passing.get_text().to_int() + amount))
+	$Summary.show()
+	
+func add_failing(amount=1):
+	_summary.failing.set_text(str(_summary.failing.get_text().to_int() + amount))
+	$Summary.show()
+
+func clear_summary():
+	_summary.passing.set_text("0")
+	_summary.failing.set_text("0")
+	$Summary.hide()
+	

@@ -48,3 +48,15 @@ func _on_EndRunMode_pressed():
 
 func _on_PauseBeforeTeardown_pressed():
 	$Gut.pause()
+
+
+func _on_Fail_pressed():
+	$Gut.add_failing()
+
+
+func _on_Pass_pressed():
+	$Gut.add_passing()
+
+
+func _on_Clear_Summary_pressed():
+	$Gut.clear_summary()
