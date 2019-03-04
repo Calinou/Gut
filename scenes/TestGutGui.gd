@@ -37,10 +37,14 @@ func _ready():
 func _add_bunch_of_scripts(how_many):
 	var scripts = []
 	for i in range(how_many):
-		scripts.append(str('res://test/unit/test_script_', i, '.gd'))
+		scripts.append(str('res://test/unit/integration/unit/test_script_that_tests_something', i, '.gd'))
 	$Gut.set_scripts(scripts)
 
 
 
 func _on_EndRunMode_pressed():
 	$Gut.end_run()
+
+
+func _on_PauseBeforeTeardown_pressed():
+	$Gut.pause()
